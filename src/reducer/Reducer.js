@@ -97,6 +97,15 @@ export const reducer = (state, action)=>{
                     ballCount: state.ballCount -1,
                 }
             }
+            else if(action.payload.startsWith('NB')) {
+                let run = action.payload[action.payload.length-1]
+                run = Number(run)
+                run = run + 1
+                return {
+                    ...state,
+                    Runs: state.Runs - run,
+                }
+            }
             else {
                 return {
                     ...state,

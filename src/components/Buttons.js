@@ -100,7 +100,7 @@ const Buttons = ()=>{
             dispatch(deleteLastBall())
             let item = appState.overBallsArray[appState.overBallsArray.length -1]
             console.log(item)
-            if(item === 'W' || item === 'WD'){
+            if(item === 'W' || item === 'WD' || item.startsWith('NB')){
                 item = String(item)
                 dispatch(updatedeletedchar(item))
             }
@@ -122,10 +122,6 @@ const Buttons = ()=>{
         dispatch(resetRuns_Wickets());
     }
 
-    const handleRefChange = (e)=>{
-        console.log(Ref.current.checked)
-    }
-
     const handleclick= (e)=>{
         if(appState.overBallsArray.length === 0){
             dispatch(toggleOverDisplay())
@@ -143,6 +139,7 @@ const Buttons = ()=>{
             }
             return
         }
+
         if(e.target.value >= 0){
             dispatch(updateBallCount())
             dispatch(updateRuns(e))
@@ -178,10 +175,10 @@ const Buttons = ()=>{
                 <Boutton value={'WD'} onClick={handleclick}>WD</Boutton>
             </ButtonBar>
             <Label>
-                <input ref={Ref} type="checkbox" onChange={(e)=>handleRefChange(e)}/>
+                <input ref={Ref} type="checkbox"/>
                 No Ball
             </Label>
-            <Boutton2 onClick={handleDelete}>Delete Last Ball</Boutton2>
+            <Boutton2 value={'NB'} onClick={handleDelete}>Delete Last Ball</Boutton2>
         </Div>
     )
 }
