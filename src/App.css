@@ -1,0 +1,14 @@
+:root {
+  --backgroung-color : rgb(202 138 138 / 17%);
+}
+
+.App {
+  width: 360px;
+  height: fit-content;
+  background: var(--backgroung-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
